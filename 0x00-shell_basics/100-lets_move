@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name '[A-Z]*' -type f -exec mv {} /tmp/u \;
+mv $file [[:upper:]]* /tmp/u
