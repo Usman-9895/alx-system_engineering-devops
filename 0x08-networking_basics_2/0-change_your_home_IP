@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
-# This script is modifying hosts.
 
-# Copie le fichier hosts dans le répertoire personnel de l'utilisateur
-cp /etc/hosts ~/hosts.new
+# Sauvegardez le fichier /etc/hosts d'origine
+sudo cp /etc/hosts /etc/hosts.bak
 
-# Modifie le fichier hosts.new en remplaçant les adresses IP spécifiées
-sed -i 's/127.*$/127.0.0.2 localhost\n8.8.8.8 facebook.com/' ~/hosts.new
+# Remplacez localhost par 127.0.0.2
+sudo sed -i 's/127.0.0.1 localhost/127.0.0.2 localhost/' /etc/hosts
 
-# Copie le fichier modifié dans le répertoire système /etc/hosts
-cp -f ~/hosts.new /etc/hosts
+# Changez Facebook.com en 8.8.8.8
+sudo sed -i 's/facebook.com/8.8.8.8 facebook.com/' /etc/hosts
+
+# Afficher un message
+echo "Host configurations updated."
+
+# Afficher le fichier /etc/hosts mis à jour
+echo "Updated /etc/hosts file:"
+cat /etc/hosts
