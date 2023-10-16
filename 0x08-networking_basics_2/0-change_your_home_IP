@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Sauvegardez le fichier /etc/hosts d'origine
 sudo cp /etc/hosts /etc/hosts.bak
 
