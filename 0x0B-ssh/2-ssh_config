@@ -1,4 +1,4 @@
 # This is the ssh client system-wide configuration file. 
 Host *
     PasswordAuthentication no
-    IdentityFile ~/.ssh/holberton
+    IdentityFile ~/.ssh/school
