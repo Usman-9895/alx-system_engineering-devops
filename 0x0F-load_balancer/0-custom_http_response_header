@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Installer Nginx si ce n'est pas déjà fait
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Récupérer le nom d'hôte de la machine
+hostname=$(hostname)
+
+# Configuration de Nginx avec le header personnalisé
+echo "server {
+    listen 80;
+
+    server_name _;
+
+    location / {
+        add_header X-Served-By $hostname;
+        # Autres configurations Nginx peuvent être ajoutées ici
+    }
+}" | sudo tee /etc/nginx/sites-available/default
+
+# Redémarrer Nginx pour appliquer les changements
+sudo systemctl restart nginx
